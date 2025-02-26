@@ -3,7 +3,7 @@ import lupa from '../assets/lupa.png'
 
 function Search(){
     return(
-        <div>
+        <div className='mb-[1.5rem]'>
             <div className='bg-[#FEFEFE] flex justify-between p-[1.375rem] rounded-[1rem]'>
             <div className='flex items-center gap-[1.5rem]'>
                 <img src={lupa} alt="search" className='h-[1.5rem] w-[1.rem]'/>
