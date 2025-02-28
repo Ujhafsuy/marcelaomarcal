@@ -18,31 +18,31 @@ function User() {
 
     return(
         <div>
-            <main className='grid gap-4 grid-cols-[1fr_4fr] bg-[#FEFEFE] rounded-[1rem] max-w-[45.625rem]'>
+            <main className='grid gap-4 grid-cols-[1fr_4fr] bg-[#FEFEFE] rounded-[1rem] w-[45.625rem] max-w-[45.625rem] p-[3rem]'>
                 <img src={usuario.avatar_url} alt="" className='h-[7.3125rem] w-[7.3125rem] rounded-full'/>
                 <div className='flex flex-col'>
                     <h1>{usuario.name == null ? "This profile has no name" : usuario.name }</h1>
                     <span>@{usuario.login}</span>
                     <p>{usuario.bio == null ? "This profile has no bio" : usuario.bio }</p>
-                    <table>
-                        <thead>
-                            <tr>
+                    <table className='flex flex-col h-[5.3125rem] bg-[#F6F8FF]  pb-[0.9375rem] rounded-[0.5rem] mb-[2.4375rem] mt-[2rem]'>
+                        <thead className='h-[10rem]'>
+                            <tr className='flex justify-around w-full pt-[0.9375rem] pb-[0.9375rem] pl-[2rem] pr-[2rem]'>
                                 <th scope="col">Rpos</th>
                                 <th scope="col">Followers</th>
                                 <th scope="col">Following</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>{usuario.public_repos}</td>
-                                <td>{usuario.followers}</td>
-                                <td>{usuario.following}</td>
+                        <tbody className=' w-full'>
+                            <tr className='bg-[purple] w-full flex justify-around pl-[2rem] pr-[2rem]'>
+                                <td className='w-[1.5rem]'>{usuario.public_repos}</td>
+                                <td className='text-left'>{usuario.followers}</td>
+                                <td className='text-left'>{usuario.following}</td>
                             </tr>
                         </tbody>
                     </table>
 
                     <div className='grid grid-rows-2'>
-                        <div className='bg-000'>
+                        <div className='bg-[red] flex'>
                             <div className='flex'>
                                 <img src={point} alt="point" />
                                 <p>{usuario.location == null ? "Not avaliable" : usuario.location}</p>
@@ -52,7 +52,7 @@ function User() {
                                 <p>{usuario.blog == null ? "Not avaliable" : usuario.blog}</p>
                             </div>
                         </div>
-                        <div>
+                        <div className='bg-[blue] flex'>
                             <div className='flex'>
                                 <img src={twitter} alt="twitter" />
                                 <p>{usuario.twitter_username == null ? "Not avaliable" : usuario.twitter_username}</p>
