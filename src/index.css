@@ -4,3 +4,12 @@
 * {
   font-family: 'Space Mono', sans-serif;
 }
+
+:root{
+  --light-mode-gray: #697C9A;
+  --light-mode-blue: #0079FF;
+  --light-mode-slateblue: #4B6A9B;
+  --light-mode-darkgray: #2B3442;
+  --light-mode-slatewhite: #F6F8FF;
+  --light-mode-offwhite: #FEFEFE;
+}

@@ -18,48 +18,47 @@ function User() {
 
     return(
         <div>
-            <main className='grid gap-4 grid-cols-[1fr_4fr] bg-[#FEFEFE] rounded-[1rem] w-[45.625rem] max-w-[45.625rem] p-[3rem]'>
+            <main className='grid gap-4 grid-cols-[1fr_4fr] bg-[var(--light-mode-offwhite)] rounded-[1rem] w-[45.625rem] max-w-[45.625rem] p-[3rem]'>
                 <img src={usuario.avatar_url} alt="" className='h-[7.3125rem] w-[7.3125rem] rounded-full'/>
                 <div className='flex flex-col'>
-                    <h1>{usuario.name == null ? "This profile has no name" : usuario.name }</h1>
-                    <span>@{usuario.login}</span>
+                    <h1 className='font-bold text-[1.625rem] leading-[2.375rem]'>{usuario.name == null ? "This profile has no name" : usuario.name }</h1>
+                    <h3 className='text-[var(--light-mode-blue)] font-normal text-[1rem] leading-[1.5rem] mb-[1.25rem]'>@{usuario.login}</h3>
                     <p>{usuario.bio == null ? "This profile has no bio" : usuario.bio }</p>
-                    <table className='flex flex-col h-[5.3125rem] bg-[#F6F8FF]  pb-[0.9375rem] rounded-[0.5rem] mb-[2.4375rem] mt-[2rem]'>
-                        <thead className='h-[10rem]'>
-                            <tr className='flex justify-around w-full pt-[0.9375rem] pb-[0.9375rem] pl-[2rem] pr-[2rem]'>
-                                <th scope="col">Rpos</th>
-                                <th scope="col">Followers</th>
-                                <th scope="col">Following</th>
-                            </tr>
-                        </thead>
-                        <tbody className=' w-full'>
-                            <tr className='bg-[purple] w-full flex justify-around pl-[2rem] pr-[2rem]'>
-                                <td className='w-[1.5rem]'>{usuario.public_repos}</td>
-                                <td className='text-left'>{usuario.followers}</td>
-                                <td className='text-left'>{usuario.following}</td>
-                            </tr>
-                        </tbody>
-                    </table>
 
-                    <div className='grid grid-rows-2'>
-                        <div className='bg-[red] flex'>
-                            <div className='flex'>
-                                <img src={point} alt="point" />
-                                <p>{usuario.location == null ? "Not avaliable" : usuario.location}</p>
+                    <div className='flex flex-row items-center justify-around h-[5.3125rem] bg-[var(--light-mode-slatewhite)] rounded-[0.5rem] mb-[2.4375rem] mt-[2rem]'>
+                        <div>
+                            <h4 className='text-[var(--light-mode-slateblue)] font-normal text-[0.8125rem] leading-[1.25rem]'>Repos</h4>
+                            <h2 className='font-bold text-[1.375rem] leading-[2.0625rem]'>{usuario.public_repos}</h2>
+                        </div>
+                        <div>
+                            <h4 className='text-[var(--light-mode-slateblue)] font-normal text-[0.8125rem] leading-[1.25rem]'>Followers</h4>
+                            <h2 className='font-bold text-[1.375rem] leading-[2.0625rem]'>{usuario.followers}</h2>
+                        </div>
+                        <div>
+                            <h4 className='text-[var(--light-mode-slateblue)] font-normal text-[0.8125rem] leading-[1.25rem]'>Following</h4>
+                            <h2 className='font-bold text-[1.375rem] leading-[2.0625rem]'>{usuario.following}</h2>
+                        </div>
+                    </div>
+
+                    <div className='flex flex-row w-full justify-around'>
+                        <div className='flex flex-col'>
+                            <div className='flex gap-[1.1875rem]'>
+                                <img src={point} alt="point" className='pr-[6px]'/>
+                                <p className='text-[var(--light-mode-slateblue)]'>{usuario.location == null ? "Not avaliable" : usuario.location}</p>
                             </div>
-                            <div className='flex'>
+                            <div className='flex gap-[1.1875rem]'>
                                 <img src={clips} alt="clips" />
-                                <p>{usuario.blog == null ? "Not avaliable" : usuario.blog}</p>
+                                <a className='text-[var(--light-mode-slateblue)] max-w[10.9375rem] w-[10.9375rem] hover:' href={usuario.blog}>{usuario.blog == null ? "Not avaliable" : "Blog"}</a>
                             </div>
                         </div>
-                        <div className='bg-[blue] flex'>
-                            <div className='flex'>
+                        <div className='flex flex-col'>
+                            <div className='flex gap-[1.1875rem]'>
                                 <img src={twitter} alt="twitter" />
-                                <p>{usuario.twitter_username == null ? "Not avaliable" : usuario.twitter_username}</p>
+                                <p className='text-[var(--light-mode-slateblue)]'>{usuario.twitter_username == null ? "Not avaliable" : usuario.twitter_username}</p>
                             </div>
-                            <div className='flex'>
+                            <div className='flex gap-[1.1875rem]'>
                                 <img src={predio} alt="predio" />
-                                <p>{usuario.company == null ? "Not avaliable" : usuario.company}</p>
+                                <p className='text-[var(--light-mode-slateblue)]'>{usuario.company == null ? "Not avaliable" : usuario.company}</p>
                             </div>
                         </div>
                     </div>
