@@ -6,13 +6,30 @@ import clips from '../assets/002-url.svg'
 import twitter from '../assets/004-twitter.svg'
 import predio from '../assets/001-office-building.svg'
 
-function User() {
+
+function User({clicado, setClicado, nome}) {
     const [usuario, setUsuario] = useState(null);
-    let nome = "Ctorum"
+
+    // useEffect(() => {
+    //     setClicadoState(getClicado());
+        
+    //     console.log(clicado)
+    //     const atualizarNome = () => {
+    //         setNome(localStorage.getItem("Nome") || "");
+    //     };
+    //     window.addEventListener("storage", atualizarNome);
+    //     return () => window.removeEventListener("storage", atualizarNome);
+    // }, [clicado]);
+
+    
     useEffect(() => {
-        fetch(`https://api.github.com/users/${nome}`).then(response => response.json()).then(dados => setUsuario(dados))},
-        [])
-        console.log(usuario)
+        if(clicado || nome){
+            setClicado(false)
+            fetch(`https://api.github.com/users/${ nome }`).then(response => response.json()).then(dados => setUsuario(dados) )
+        }
+        },
+
+        [clicado, nome])
 
     if (!usuario) return <div>Carregando...</div>;
 
@@ -48,7 +65,7 @@ function User() {
                             </div>
                             <div className='flex gap-[1.1875rem]'>
                                 <img src={clips} alt="clips" />
-                                <a className='text-[var(--light-mode-slateblue)] max-w[10.9375rem] w-[10.9375rem] hover:' href={usuario.blog}>{usuario.blog == null ? "Not avaliable" : "Blog"}</a>
+                                <a className='text-[var(--light-mode-slateblue)] max-w[10.9375rem] w-[10.9375rem] hover:underline cursor-[pointer]' href={usuario.blog}>{usuario.blog == null ? "Not avaliable" : "Blog"}</a>
                             </div>
                         </div>
                         <div className='flex flex-col'>
