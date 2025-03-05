@@ -9,11 +9,16 @@ function App() {
 
   const [cliqued, setClicado] = useState(false);
   const [nomeUsuario, setNomeUsuario] = useState("octocat");
+  const [mostra, setMostra] = useState(false)
 
   const handleSearch = (nome) => {
     setNomeUsuario(nome);
     setClicado(true);
 };
+
+  const mostrarErro = () => {
+    setMostra(true)
+  }
 
   return (
       <div id='container' className='bg-[var(--light-mode-slatewhite)] h-dvh flex flex-col w-full items-center justify-center'>
@@ -25,9 +30,9 @@ function App() {
               <img src={moon} alt="Lua" />
             </div>
           </div>
-          <Search onSearch={handleSearch} />
+          <Search onSearch={handleSearch} errado={mostra}/>
         </header>
-        <User clicado={cliqued} setClicado={setClicado} nome={nomeUsuario}/>
+        <User clicado={cliqued} setClicado={setClicado} nome={nomeUsuario} erro={mostrarErro}/>
       </div>
   )
 }

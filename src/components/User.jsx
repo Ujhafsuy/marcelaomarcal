@@ -7,7 +7,7 @@ import twitter from '../assets/004-twitter.svg'
 import predio from '../assets/001-office-building.svg'
 
 
-function User({clicado, setClicado, nome}) {
+function User({clicado, setClicado, nome, erro}) {
     const [usuario, setUsuario] = useState(null);
 
     // useEffect(() => {
@@ -25,7 +25,13 @@ function User({clicado, setClicado, nome}) {
     useEffect(() => {
         if(clicado || nome){
             setClicado(false)
-            fetch(`https://api.github.com/users/${ nome }`).then(response => response.json()).then(dados => setUsuario(dados) )
+            fetch(`https://api.github.com/users/${ nome }`)
+            .then(response => response.json())
+            .then(dados => setUsuario(dados) )
+            .catch( error => {
+                error == 404 ? erro = true : erro = false
+            } )
+            console.log(erro)
         }
         },
 
