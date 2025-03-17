@@ -22,7 +22,7 @@ function Search({ onSearch, errado }){
                 <img src={lupa} alt="search" className='h-[1.5rem] w-[1.5rem] ml-[32px] lupa'/>
                 <input onChange={(e) => setNome(e.target.value)} type="text" name="" id=""  placeholder='Search Github username...' className='w-[25rem] cursor-[pointer] placeholder-[var(--slateblue)] text-[var(--slateblue)]'/>
             </div>
-                {errado == true ? <span className='text-[var(--red-color)] font-bold text-[0.9375rem]'>No results</span> : <span className='text-[var(--red-color)] font-bold text-[0.9375rem] hidden'>No results</span>}
+                {errado == true ? <span className='pc text-[var(--red-color)] font-bold text-[0.9375rem]'>No results</span> : <span className='pc text-[var(--red-color)] font-bold text-[0.9375rem] hidden'>No results</span>}
             <Button clique={seguraNome}/>
             </div>
         </div>
